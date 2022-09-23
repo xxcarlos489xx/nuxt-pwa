@@ -19,6 +19,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {src: "~/plugins/misc/vuex-persist.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,15 +43,24 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'https://pokeapi.co/api/v2',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta:{
+      title:'New PWA APP',
+      author:'Charlie'
+    },
     manifest: {
+      name:'new App',
+      descripction:'Implementation for PWA',
       lang: 'en'
     },
-    icon:true,
+    icon:{
+      fileName:'icon.png',
+      sizes:[64, 120, 144, 152, 192, 384, 512]
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
